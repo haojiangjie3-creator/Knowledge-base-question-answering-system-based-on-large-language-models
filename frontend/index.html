@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>项目管理与匹配系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>项目管理与智能匹配系统</h1>
+        <section class="project-list">
+            <h2>已有项目</h2>
+            <div class="project-search-bar">
+                <input type="text" id="project-search-input" placeholder="搜索项目名称...">
+            </div>
+            <div id="project-list" class="project-list-cards"></div>
+            <div id="project-pagination" class="project-pagination"></div>
+        </section>
+        <section class="import-section">
+            <h2>导入新项目</h2>
+            <div class="tab-switch">
+                <button type="button" id="tab-upload" class="active">上传Word文档</button>
+                <button type="button" id="tab-text">输入项目描述</button>
+            </div>
+            <form id="import-form">
+                <div id="upload-panel">
+                    <input type="file" name="file" accept=".doc,.docx">
+                </div>
+                <div id="text-panel" style="display:none;">
+                    <textarea name="text" rows="3" placeholder="请输入项目描述"></textarea>
+                </div>
+                <button type="submit">导入项目</button>
+            </form>
+            <div id="import-msg"></div>
+        </section>
+        <section class="match-section">
+            <h2>项目智能匹配</h2>
+            <form id="match-form">
+                <input type="text" name="query" placeholder="请输入您的需求" required>
+                <button type="submit">匹配项目</button>
+            </form>
+            <div id="match-log-container" style="display:none;">
+                <h3>匹配过程详情</h3>
+                <pre id="match-log" class="match-log"></pre>
+            </div>
+            <ul id="match-result"></ul>
+        </section>
+    </div>
+    <!-- 项目详情弹窗 -->
+    <div id="project-modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-modal">×</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-details"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
